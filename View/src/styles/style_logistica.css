@@ -7,6 +7,7 @@
 body {
     margin: 0; /* Remove as margens padrão do body */
     padding: 0; /* Remove os paddings padrão */
+    background-color: #ffffff;
 }
 
 
@@ -53,16 +54,20 @@ body {
     margin-left: 200px; /* espaço para o menu */
     padding: 5px;
     transition: margin-left 0.7s ease; /* transição suave ao abrir/fechar o menu */
-    background-color: rgb(147, 139, 139);
+    background-color: #ffffff;
+    
     
 }
 
 .campo_btns{
-    background-color: rgb(147, 139, 139);
+    background-color: rgb(233, 233, 233);
     display: flex;
-    gap: 5px;
+    gap: 30px;
+    justify-content: center;
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
     
-    justify-content: end;
 }
 
 .btn_cadastro,
@@ -70,8 +75,35 @@ body {
 .btn_registro{
     
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
+    border-style: hidden;
+    background-color: #fa0000;
+    color: white;
+    height: 40px;
+    width: 100%;
     
+}
+
+.btn_cadastro span,
+.btn_saida span,
+.btn_registro span {
+    
+    font-size: 17px;
+    font-family: Montserrat;
+    font-weight: bold;
+    
+}
+
+.btn_cadastro:hover,
+.btn_saida:hover,
+.btn_registro:hover{
+    
+    background-color: #bf0404;
+    
+}
+
+.text_main{
+    height: 20px;
 }
 
 
