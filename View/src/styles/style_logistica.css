@@ -44,31 +44,47 @@ body {
 
 
 /*CONFIGURAÇÕES DO CONTAINER INICIAL*/
-.container_init{
-    margin-top: 100px;
+.container_header_conteudo{
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;   /* alinha verticalmente */
     align-items: center;       /* alinha horizontalmente */
     margin-left: 200px; /* espaço para o menu */
-    padding: 20px;
-    padding-top: 80px;
+    padding: 5px;
     transition: margin-left 0.7s ease; /* transição suave ao abrir/fechar o menu */
+    background-color: rgb(147, 139, 139);
+    
 }
 
-.menu_vertical.hidden + .container_init{
+.campo_btns{
+    background-color: rgb(147, 139, 139);
+    display: flex;
+    gap: 5px;
+    
+    justify-content: end;
+}
+
+.btn_cadastro,
+.btn_saida,
+.btn_registro{
+    
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+
+
+
+
+.menu_vertical.hidden + .container_header_conteudo{
     
     
     margin-left: 0;
     
 }
 
-.img_init{
-    display: flex;
-    flex-direction: column;
 
-    width: 550px;
-}
 
 .text_init{
     display: flex;
@@ -77,6 +93,7 @@ body {
     align-items: center;
     font-family: Montserrat;
     font-weight: normal;
+    color: rgb(255, 255, 255);
 }
 
 /*-------CONFIGURAÇÕES DO CONTAINER INICIAL--------------*/
@@ -229,3 +246,6 @@ body {
 .btn_config{
  border-style: hidden;
 }
+
+
+
