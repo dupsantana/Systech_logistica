@@ -2,106 +2,281 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página Inicial</title>
-    <link rel="stylesheet" href="../styles/style_logistica.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="../styles/style_logistica.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <header class="container_header">
-        <div class="header_content">
-            <a href="home_logged.html"><h1>SYSTECH</h1></a>
+  <header class="container_header">
+    <div class="header_content">
+      <a href="home_logged.html">
+        <h1>SYSTECH</h1>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="menu_vertical">
+      <button id="toggleMenu"><i class="fa-solid fa-bars fa-2x"></i></button>
+
+      <div class="c_logistica">
+        <button class="btn_logistica" id="btn_logistica">
+          <div class="text_logistica">LOGÍSTICA <i class="fa-solid fa-boxes-stacked fa-2x"></i></div>
+        </button>
+      </div>
+
+      <div class="c_orcamento">
+        <button class="btn_orcamento" id="btn_orcamento">
+          <div class="text_orcamento">ORÇAMENTOS <i class="fa-solid fa-money-check-dollar fa-2x"></i></div>
+        </button>
+      </div>
+
+      <div class="c_funcionarios">
+        <button class="btn_funcionarios" id="btn_funcionarios">
+          <div class="text_funcionarios">FUNCIONÁRIOS <i class="fa-solid fa-person fa-2x"></i></div>
+        </button>
+      </div>
+
+      <div class="c_config">
+        <button class="btn_config" id="btn_config">
+          <div class="text_config">
+            CONFIGURAÇÕES <i class="fa-solid fa-gears fa-lg"></i>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="container_header_conteudo">
+      <div class="campo_btns">
+        <div>
+          <button class="btn_estoque" id="btn_estoque">
+            <div>
+              <span class="text_main"><i class="fa-solid fa-warehouse" style="color: #ffffff;"></i> Estoque</span>
+            </div>
+          </button>
         </div>
-    </header>
 
-    <main>
-
-         <div class="menu_vertical">
-            
-                <button id="toggleMenu"><i class="fa-solid fa-bars"></i></button>
-            
-            <div class="c_logistica">
-                <button class="btn_logistica" id="btn_logistica">
-                    <div class="text_logistica">LOGÍSTICA  <i class="fa-solid fa-boxes-stacked fa-2x"></i></div>
-                </button>
+        <div>
+          <button class="btn_cadastro" id="btn_cadastro">
+            <div>
+              <span class="text_main"><i class="fa-solid fa-clipboard-list fa-lg" style="color: #ffffff;"></i>
+                Cadastros</span>
             </div>
-
-            <div class="c_orcamento">
-                <button class="btn_orcamento" id="btn_orcamento">
-                    <div class="text_orcamento">ORÇAMENTOS <i class="fa-solid fa-money-check-dollar fa-2x"></i></div>
-                </button>
-            </div>
-
-            <div class="c_funcionarios">
-                <button class="btn_funcionarios" id="btn_funcionarios">
-                    <div class="text_funcionarios">FUNCIONÁRIOS  <i class="fa-solid fa-person fa-2x"></i></div>
-                </button>
-            </div>
-
-            <div class="c_config">
-                <button class="btn_config" id="btn_config">
-                    <div class="text_config">
-                        CONFIGURAÇÕES <i class="fa-solid fa-gears fa-lg"></i>
-                    </div>
-                </button>
-            </div>
-
-            
+          </button>
         </div>
 
+        <div>
+          <button class="btn_saida" id="btn_saida">
+            <div>
+              <span class="text_main"><i class="fa-solid fa-truck-arrow-right" style="color: #ffffff;"></i>
+                Saídas</span>
+            </div>
+          </button>
+        </div>
 
-        <div class="container_header_conteudo">
-            
-                <div class="text_init">
-                    <h2>Gerenciamento de estoque</h2>
+        <div>
+          <button class="btn_registro" id="btn_registro">
+            <div>
+              <span class="text_main"><i class="fa-regular fa-calendar-days" style="color: #ffffff;"></i>
+                Registros</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+
+<!-- ========== INÍCIO DO CAMPO DE PESQUISA ========== -->
+<div class="container_pesquisa">
+        <div class="container_form_pesquisa">
+          <form action="">
+            <div class="input_container">
+              <div class="input_pesquisa" id="input_pesquisa">
+                <div class="input-field">
+                  <label for="" class="form_campo_pesquisa">Pesquisar </label>
+                  <input type="text" name="campo_pesquisa" class="form_campo_pesquisa" placeholder=" Digite o nome do produto">
+                  <i class="fa-solid fa-magnifying-glass fa-lg" style="color: #000000;"></i>
                 </div>
-                <div class="campo_btns">
-                    <div>
-                        <button class="btn_cadastro">
-                            <div>
-                                <span  class="text_main"><i class="fa-solid fa-clipboard-list fa-lg" style="color: #ffffff;"></i> Cadastros</span>
-                            </div>   
-                        </button>
-                    </div>
-
-                    <div>
-                        <button class="btn_registro"> 
-                            <div>
-                                <span  class="text_main"><i class="fa-solid fa-truck-arrow-right" style="color: #ffffff;"></i> Saídas</span>
-                            </div>
-                        </button>
-                    </div>
-
-                    <div>
-                        <button class="btn_saida"> 
-                            <div>
-                                <span class="text_main"><i class="fa-regular fa-calendar-days" style="color: #ffffff;"></i> Registros</span>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            
+              </div>
+            </div>
+          </form>
         </div>
+</div>
+<!-- ========== FIM DO CAMPO DE PESQUISA ========== -->
+
+<!-- ========== INÍCIO DO FORMULÁRIO DE CADASTRO ========== -->
+<div class="container_form_cadastro" id="container_form_cadastro">
+  <div class="container_form">
+    <form action="">
+      <div class="input_container">
+        <div class="input_cadastro" id="input_cadastro">
+
+          <div class="input-field">
+            <label for="" class="label_campo_cadastro_nome">Nome</label>
+            <input type="text" name="campo_cadastro_nome" class="campo_cadastro_nome">
+          </div>
+
+          <div class="input-field">
+            <label for="" class="label_campo_cadastro_marca">Marca</label>
+            <input type="text" name="campo_cadastro_marca" class="campo_cadastro_marca">
+          </div>
+
+          <div class="input-field">
+            <label for="" class="label_campo_cadastro_quantidade">Quantidade</label>
+            <input type="text" name="campo_cadastro_quantidade" class="campo_cadastro_quantidade">
+          </div>
+
+          <div class="input-field">
+              <button type="submit" class="salvar_produto" id="salvar_produto">Cadastrar</button>
+
+          </div>
 
 
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
 
+<!-- ========== FIM DO FORMULÁRIO DE CADASTRO ========== -->
 
 
+      
 
+<!-- ========== INÍCIO DA TABELA DE ESTOQUE ========== -->
+      <div class="tabela-container" id="tabela_estoque">
+        <div class="tabela_dashboard">
+          <table class="tabela_estilizada">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+                <th>Alerta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Acessório de Instalação para Video Wall AWL 7000</td>
+                <td>INTELBRAS</td>
+                <td>5</td>
+                <td><span class="badge alerta">COMPRAR</span></td>
+              </tr>
+              <tr>
+                <td>Acionador de Emergência Rearmável AS2010</td>
+                <td>INTELBRAS</td>
+                <td></td>
+                <td><span class="badge alerta">COMPRAR</span></td>
+              </tr>
+              <tr>
+                <td>Acionador Manual Conv. - AMC 421</td>
+                <td>INTELBRAS</td>
+                <td></td>
+                <td><span class="badge alerta">COMPRAR</span></td>
+              </tr>
+              <tr>
+                <td>Câmera Bullet</td>
+                <td>INTELBRAS</td>
+                <td>3</td>
+                <td><span class="badge alerta">COMPRAR</span></td>
+              </tr>
+              <tr>
+                <td>Acionador Manual Conv. - AMC 421</td>
+                <td>AAAA</td>
+                <td>5</td>
+                <td><span class="badge alerta">COMPRAR</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+<!-- ========== FIM DA TABELA DE ESTOQUE ========== -->
 
+<!-- ========== INÍCIO DA TABELA DE CADASTROS ========== -->
+      <div class="tabela-container" id="tabela_cadastros">
+        <div class="tabela_dashboard">
+          <table class="tabela_estilizada">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+                <th>Alerta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ESSA É A TABELA DE CADASTRO</td>
+                <td>INTELBRAS</td>
+                <td>5</td>
+                <td><span class="badge alerta">COMPRAR</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+<!-- ========== FIM DA TABELA DE CADASTROS ========== -->
 
+<!-- ========== INÍCIO DA TABELA DE SAÍDAS ========== -->
+      <div class="tabela-container" id="tabela_saidas">
+        <div class="tabela_dashboard">
+          <table class="tabela_estilizada">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+                <th>Alerta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ESSA É A TABELA DE SAÍDA</td>
+                <td>INTELBRAS</td>
+                <td>5</td>
+                <td><span class="badge alerta">COMPRAR</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+<!-- ========== FIM DA TABELA DE SAÍDAS ========== -->
 
+<!-- ========== INÍCIO DA TABELA DE REGISTROS ========== -->
+      <div class="tabela-container" id="tabela_registros">
+        <div class="tabela_dashboard">
+          <table class="tabela_estilizada">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+                <th>Alerta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ESSA É A TABELA DE REGISTRO</td>
+                <td>INTELBRAS</td>
+                <td>5</td>
+                <td><span class="badge alerta">COMPRAR</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+<!-- ========== FIM DA TABELA DE REGISTROS ========== -->
 
+    </div>
+  </main>
 
-
-    </main>
-
-    <footer></footer>
-     <script src="../../../javascript/script.js"></script>
+  <footer></footer>
+  <script src="../../../javascript/script.js"></script>
 </body>
 
 </html>

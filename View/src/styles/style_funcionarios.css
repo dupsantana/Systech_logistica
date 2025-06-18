@@ -83,6 +83,8 @@ body {
 
 /*-------CONFIGURAÇÕES DO MENU VERTICAL--------------*/
 
+
+
 .menu_vertical{
     
     position: fixed;
@@ -110,10 +112,11 @@ body {
     
     
     position: absolute;
-    right: -23.5px;
+    right: -35.5px;
     cursor: pointer;
     z-index: 100;
     border-style:none;
+    
 }
 
 
@@ -122,7 +125,7 @@ body {
 /*ajuste de espaçamento do botão*/
 
 .menu_vertical.hidden #toggleMenu{
-    right: -25px;
+    right: -35.5px;
 }
 /*-------CONFIGURAÇÕES DO MENU VERTICAL--------------*/
 
@@ -140,8 +143,7 @@ body {
     width: 100%;
     height: 100%;
     cursor: pointer;
-    
-    
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     
 }
 
@@ -158,6 +160,7 @@ body {
     width: 100%;
     height: 100%;
     cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     
 }
 
@@ -174,8 +177,8 @@ body {
     width: 100%;
     height: 100%;
     cursor: pointer;
-    background-color: rgb(180, 177, 177);
-    
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: rgb(210, 207, 207);
 }
 
 .c_config {
@@ -194,7 +197,8 @@ body {
     cursor: pointer;
     color: white;
     background-color: red;
-    
+    border-radius: 2px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -206,13 +210,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
+    
 }
 
 /*HOVERS DOS BOTÕES*/
 .btn_funcionarios:hover,
 .btn_orcamento:hover,
 .btn_logistica:hover{
- background-color: rgb(180, 177, 177);
+ background-color: rgb(210, 207, 207);
 }
 
 .btn_config:hover{
@@ -230,3 +235,4 @@ body {
 .btn_config{
  border-style: hidden;
 }
+

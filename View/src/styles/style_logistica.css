@@ -8,7 +8,9 @@ body {
     margin: 0; /* Remove as margens padrão do body */
     padding: 0; /* Remove os paddings padrão */
     background-color: #ffffff;
+    
 }
+
 
 
 .container_header{
@@ -24,6 +26,7 @@ body {
     align-items: center;
     background-color: #dd1d1d;
     color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     
     
     
@@ -66,10 +69,12 @@ body {
     justify-content: center;
     width: 80%;
     padding: 10px;
+    margin-top: 30px;
     border-radius: 10px;
     
 }
 
+.btn_estoque,
 .btn_cadastro,
 .btn_saida,
 .btn_registro{
@@ -81,9 +86,22 @@ body {
     color: white;
     height: 40px;
     width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn_estoque.active,
+.btn_cadastro.active,
+.btn_saida.active,
+.btn_registro.active{
+      background-color: #cc1b1b; /* Vermelho mais escuro */
+    transform: translateY(1px); /* Efeito de pressionado */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); /* Sombra menor */
     
 }
 
+
+
+.btn_estoque span,
 .btn_cadastro span,
 .btn_saida span,
 .btn_registro span {
@@ -92,8 +110,9 @@ body {
     font-family: Montserrat;
     font-weight: bold;
     
+    
 }
-
+.btn_estoque:hover,
 .btn_cadastro:hover,
 .btn_saida:hover,
 .btn_registro:hover{
@@ -106,8 +125,185 @@ body {
     height: 20px;
 }
 
+/*COMEÇANDO A BARRA DE PESQUISA*/
 
 
+.container_form_pesquisa{
+
+    background-color: rgb(233, 233, 233);
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: none;
+    transition: all 0.5s ease;
+
+}
+
+
+
+.form_campo_pesquisa{
+    border-radius: 10px;
+    border-style: none;
+    width: 300px;
+    height: 20px;
+    font-family: Poppins ;
+}
+
+
+/*ENCERRANDO A BARRA DE PESQUISA*/
+
+/*CAMPO DE CADASTRO DE PRODUTOS*/
+
+
+.container_form_cadastro {
+    background-color: rgb(233, 233, 233);
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: none;                  /* Mantém escondido até o JS mostrar */
+    transition: all 0.5s ease;
+}
+
+.input_cadastro {
+    display: flex;
+    flex-direction: row;            /* Coloca os campos lado a lado */
+    gap: 5px;                       /* Espaço entre os campos */
+    flex-wrap: wrap;                /* Permite quebrar em telas pequenas */
+    align-items: flex-start;        /* Alinha os campos ao topo */
+}
+
+.input_cadastro .input-field {
+    flex: 1 1 0;                    /* Campos crescem igualmente */
+    min-width: 120px;               /* Não encolhem demais */
+    display: flex;
+    flex-direction: row;         /* Label em cima, input embaixo */
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-self: center;
+    justify-self: center;
+    
+}
+
+.label_campo_cadastro_nome,
+.label_campo_cadastro_marca,
+.label_campo_cadastro_quantidade
+{
+    
+    margin-right: 4px;
+}
+
+.campo_cadastro_nome,
+.campo_cadastro_marca,
+.campo_cadastro_quantidade {
+    width: 100%;                     /* Inputs ocupam boa parte da largura dentro de cada input-field */
+    border-radius: 4.5px;
+    border-style: none;
+}
+
+
+
+.container_form_cadastro.tabela-show {
+  display: block !important;
+}
+
+
+.salvar_produto{
+   
+    font-family: Montserrat;
+    font-weight: bold;
+    width: 80%;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: red;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-style: none;
+    height: 20px;
+    margin-left: 20px;
+}
+
+
+/*COMEÇANDO AS TABELAS*/
+
+.tabela-container {
+            display: none;
+            width: 80%;
+            margin-left: 20px;
+            margin-right: 20px;
+            transition: all 0.5s ease;
+
+        }
+
+
+        .tabela-show {
+            display: block !important;
+            animation: fadeIn 0.9s;
+        }
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+
+.tabela_dashboard {
+  width: 90%;
+  margin: 20px auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-height: 340px;      /* ou height: 400px; conforme sua necessidade */
+  
+  overflow-y: scroll;
+ 
+  padding: 10px;
+}
+
+.tabela_estilizada {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.tabela_estilizada thead {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.tabela_estilizada th,
+.tabela_estilizada td {
+  padding: 12px 16px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tabela_estilizada tr {
+  border-bottom: 1px solid #eee;
+}
+
+.tabela_estilizada tbody tr:hover {
+  background-color: #d3d0d0;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 12px;
+  
+}
+
+.badge.alerta {
+  background-color: #e60000;
+  color: white;
+    
+}
+
+/*ENCERRANDO TABELAS*/
 
 .menu_vertical.hidden + .container_header_conteudo{
     
@@ -115,6 +311,8 @@ body {
     margin-left: 0;
     
 }
+
+
 
 
 
@@ -159,19 +357,18 @@ body {
     
     
     position: absolute;
-    right: -23.5px;
+    right: -35.5px;
     cursor: pointer;
     z-index: 100;
     border-style:none;
+    
 }
-
-
 
 
 /*ajuste de espaçamento do botão*/
 
 .menu_vertical.hidden #toggleMenu{
-    right: -25px;
+    right: -35.5px;
 }
 /*-------CONFIGURAÇÕES DO MENU VERTICAL--------------*/
 
@@ -189,8 +386,8 @@ body {
     width: 100%;
     height: 100%;
     cursor: pointer;
-    background-color: rgb(180, 177, 177);
-    
+    background-color: rgb(210, 207, 207);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     
 }
 
@@ -207,6 +404,7 @@ body {
     width: 100%;
     height: 100%;
     cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     
 }
 
@@ -223,7 +421,7 @@ body {
     width: 100%;
     height: 100%;
     cursor: pointer;
-    
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .c_config {
@@ -242,7 +440,8 @@ body {
     cursor: pointer;
     color: white;
     background-color: red;
-    
+    border-radius: 2px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -254,13 +453,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
+    
 }
 
 /*HOVERS DOS BOTÕES*/
 .btn_funcionarios:hover,
 .btn_orcamento:hover,
 .btn_logistica:hover{
- background-color: rgb(180, 177, 177);
+ background-color: rgb(210, 207, 207);
 }
 
 .btn_config:hover{
@@ -268,7 +468,7 @@ body {
 }
 
 #toggleMenu:hover{
-    background-color: rgb(199, 202, 204);
+    background-color: rgb(210, 207, 207);
 }
 
 
