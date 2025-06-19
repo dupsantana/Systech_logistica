@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e;
+}
+
+.container_header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background-color: #8B0000;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header_content{
+    margin-left: 1rem;
+    font-family: Orbitron;
+    font-weight: bold;
+}
+
+.header_content a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container_header_conteudo{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 200px;
+    padding: 5px;
+    transition: margin-left 0.7s ease;
+    background-color: #1e1e1e;
+}
+
+.campo_btns{
+    background-color: #2d2d2d;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    width: 80%;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.btn_estoque,
+.btn_cadastro,
+.btn_saida,
+.btn_registro{
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: hidden;
+    background-color: #b30000;
+    color: white;
+    height: 40px;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn_estoque.active,
+.btn_cadastro.active,
+.btn_saida.active,
+.btn_registro.active{
+    background-color: #8a0000;
+    transform: translateY(1px);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn_estoque span,
+.btn_cadastro span,
+.btn_saida span,
+.btn_registro span {
+    font-size: 17px;
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
+.btn_estoque:hover,
+.btn_cadastro:hover,
+.btn_saida:hover,
+.btn_registro:hover{
+    background-color: #8a0000;
+}
+
+.text_main{
+    height: 20px;
+}
+
+.container_form_pesquisa{
+    background-color: #2d2d2d;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: none;
+    transition: all 0.5s ease;
+}
+
+.form_campo_pesquisa{
+    border-radius: 10px;
+    border-style: none;
+    width: 300px;
+    height: 20px;
+    font-family: Poppins;
+    background-color: #3a3a3a;
+    padding: 0.8px;
+    color: #e0e0e0;
+}
+
+.container_form_cadastro {
+    background-color: #2d2d2d;
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: none;
+    transition: all 0.5s ease;
+}
+
+.input_cadastro {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.input_cadastro .input-field {
+    flex: 1 1 0;
+    min-width: 120px;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-self: center;
+    justify-self: center;
+    color: #e0e0e0;
+}
+
+.label_campo_cadastro_nome,
+.label_campo_cadastro_marca,
+.label_campo_cadastro_quantidade {
+    margin-right: 4px;
+}
+
+.campo_cadastro_nome,
+.campo_cadastro_marca,
+.campo_cadastro_quantidade {
+    width: 100%;
+    border-radius: 4.5px;
+    border-style: none;
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+.container_form_cadastro.tabela-show {
+  display: block !important;
+}
+
+.salvar_produto{
+    font-family: Montserrat;
+    font-weight: bold;
+    width: 80%;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: #b30000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-style: none;
+    height: 20px;
+    margin-left: 20px;
+}
+
+.tabela-container {
+    display: none;
+    width: 80%;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: all 0.5s ease;
+}
+
+.tabela-show {
+    display: block !important;
+    animation: fadeIn 0.9s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.tabela_dashboard {
+  width: 90%;
+  margin: 20px auto;
+  background: #252525;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-height: 340px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.tabela_estilizada {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+.tabela_estilizada thead {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.tabela_estilizada th,
+.tabela_estilizada td {
+  padding: 12px 16px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tabela_estilizada tr {
+  border-bottom: 1px solid #444;
+}
+
+.tabela_estilizada tbody tr:hover {
+  background-color: #3a3a3a;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.badge.alerta {
+  background-color: #cc0000;
+  color: white;
+}
+
+.menu_vertical.hidden + .container_header_conteudo{
+    margin-left: 0;
+}
+
+.text_init{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Montserrat;
+    font-weight: normal;
+    color: #e0e0e0;
+}
+
+.menu_vertical{
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #252525;
+    transition: transform 0.7s ease;
+    z-index: 999;
+}
+
+.menu_vertical.hidden{
+    transform: translateX(-100%);
+}
+
+#toggleMenu{
+    position: absolute;
+    right: -35.5px;
+    cursor: pointer;
+    z-index: 100;
+    border-style:none;
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.menu_vertical.hidden #toggleMenu{
+    right: -35.5px;
+}
+
+.c_logistica{
+    padding: 0%;
+    margin: 0%;
+    height: 50px;
+}
+
+.btn_logistica{
+    font-family: Montserrat;
+    font-size: small;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    color: #e0e0e0;
+}
+
+.c_orcamento{
+    padding: 0%;
+    margin: 0%;
+    height: 50px;
+}
+
+.btn_orcamento{
+    font-family: Montserrat;
+    font-size: small;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.c_funcionarios{
+    padding: 0%;
+    margin: 0%;
+    height: 50px;
+}
+
+.btn_funcionarios{
+    font-family: Montserrat;
+    font-size: small;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.c_config {
+    margin-top: auto;
+    height: 50px;
+    padding: 0;
+}
+
+.btn_config{
+    font-family: Orbitron;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    color: white;
+    background-color: #b30000;
+    border-radius: 2px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.text_logistica,
+.text_orcamento,
+.text_funcionarios,
+.text.config{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.btn_funcionarios:hover,
+.btn_orcamento:hover,
+.btn_logistica:hover{
+ background-color: #3a3a3a;
+}
+
+.btn_config:hover{
+    background-color: #8a0000;
+}
+
+#toggleMenu:hover{
+    background-color: #3a3a3a;
+}
+
+.btn_funcionarios,
+.btn_orcamento,
+.btn_logistica,
+.btn_config{
+ border-style: hidden;
+}

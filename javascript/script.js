@@ -83,6 +83,7 @@ btn_estoque.addEventListener("click", () => {
         container_form.classList.add("tabela-show");
         tabelaAberta = "tabela_estoque";
     }
+    configurarPesquisa();
     resetarBotoes();
     if (tabelaAberta === "tabela_estoque") {
         btn_estoque.classList.add("active");
@@ -112,8 +113,10 @@ btn_saida.addEventListener("click", () => {
     } else {
         fecharTodasTabelas();
         tabela_saidas.classList.add("tabela-show");
+        container_form.classList.add("tabela-show");
         tabelaAberta = "tabela_saidas";
     }
+    configurarPesquisa();
     resetarBotoes();
     if (tabelaAberta === "tabela_saidas") {
         btn_saida.classList.add("active");
@@ -127,10 +130,63 @@ btn_registro.addEventListener("click", () => {
     } else {
         fecharTodasTabelas();
         tabela_registros.classList.add("tabela-show");
+        container_form.classList.add("tabela-show");
         tabelaAberta = "tabela_registros";
     }
+    configurarPesquisa();
     resetarBotoes();
     if (tabelaAberta === "tabela_registros") {
         btn_registro.classList.add("active");
     }
 });
+
+
+//LÓGICA DA BARRA DE PESQUISA
+
+function configurarPesquisa() {
+    const campoPesquisa = document.querySelector('input[name="campo_pesquisa"]');
+    
+    if (!campoPesquisa) return;
+
+    campoPesquisa.addEventListener('input', function() {
+        const pesquisa = this.value.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '');
+
+        let tabelaAtiva = null;
+
+        // CORREÇÃO 1: Nome corrigido de 'cadsatros' para 'cadastros'
+        const tabelas = {
+            estoque: document.getElementById('tabela_estoque'),
+            cadastros: document.getElementById('tabela_cadastros'), // Nome corrigido
+            saidas: document.getElementById('tabela_saidas'),
+            registros: document.getElementById('tabela_registros')
+        };
+
+        for (const [key, tabela] of Object.entries(tabelas)) {
+            // CORREÇÃO 2: Verificar se tabela existe antes de acessar classList
+            if(tabela && tabela.classList.contains('tabela-show')) {
+                tabelaAtiva = tabela;
+                break;
+            }
+        }
+
+        if(!tabelaAtiva) return;
+
+        const linhas = tabelaAtiva.querySelectorAll('tbody tr');
+
+        linhas.forEach(linha => {
+            // CORREÇÃO 3: Usar 'linha' (elemento atual) e não 'linhas' (NodeList)
+            const textoLinha = linha.textContent.toLowerCase() // Método correto
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+
+            // CORREÇÃO 4: Propriedade correta para alterar o display
+            linha.style.display = textoLinha.includes(pesquisa) ? '' : 'none';
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', configurarPesquisa);
+
+
