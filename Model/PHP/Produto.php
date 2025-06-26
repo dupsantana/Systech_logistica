@@ -4,6 +4,7 @@ class Produto{
 private $nome;
 private $marca;
 private $quantidade;
+private $alerta;
 
 
 public function getNome(){

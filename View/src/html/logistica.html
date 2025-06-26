@@ -93,7 +93,7 @@
 <!-- ========== INÍCIO DO CAMPO DE PESQUISA ========== -->
 <div class="container_pesquisa">
         <div class="container_form_pesquisa">
-          <form action="">
+          <form action="http://localhost:3000/pesquisa-produto" method="GET">
             <div class="input_container">
               <div class="input_pesquisa" id="input_pesquisa">
                 <div class="input-field">
@@ -111,23 +111,23 @@
 <!-- ========== INÍCIO DO FORMULÁRIO DE CADASTRO ========== -->
 <div class="container_form_cadastro" id="container_form_cadastro">
   <div class="container_form">
-    <form action="">
+    <form action="http://localhost:3000/cadastrar-produto" method="POST">
       <div class="input_container">
         <div class="input_cadastro" id="">
 
           <div class="input-field">
             <label for="" class="label_campo_cadastro_nome">Nome</label>
-            <input type="text" name="campo_cadastro_nome" id="input_cadastro_nome" class="campo_cadastro_nome">
+            <input type="text" name="nome" id="input_cadastro_nome" class="campo_cadastro_nome">
           </div>
 
           <div class="input-field">
             <label for="" class="label_campo_cadastro_marca">Marca</label>
-            <input type="text" name="campo_cadastro_marca" id="input_cadastro_marca" class="campo_cadastro_marca">
+            <input type="text" name="marca" id="input_cadastro_marca" class="campo_cadastro_marca">
           </div>
 
           <div class="input-field">
             <label for="" class="label_campo_cadastro_quantidade">Quantidade</label>
-            <input type="text" name="campo_cadastro_quantidade" id="input_cadastro_qtd" class="campo_cadastro_quantidade">
+            <input type="text" name="quantidade" id="input_cadastro_qtd" class="campo_cadastro_quantidade">
           </div>
 
           <div class="input-field">
@@ -273,6 +273,46 @@
         </div>
       </div>
 <!-- ========== FIM DA TABELA DE CADASTROS ========== -->
+
+
+<!-- ========== INÍCIO DO FORM DE SAÍDAS ========== -->
+<div class="container_form_saida" id="container_form_saida">
+  <div class="container_form">
+    <form action="http://localhost:3000/saida-produto" method="POST">
+      <div class="input_container">
+        <div class="input_saida" id="">
+
+          <div class="input-field">
+            <label for="" class="label_campo_saida_nome">Nome</label>
+            <input type="text" name="campo_saida_nome" id="input_saida_nome" class="campo_saida_nome">
+          </div>
+
+          <div class="input-field">
+            <label for="" class="label_campo_saida_marca">Marca</label>
+            <input type="text" name="campo_saida_marca" id="input_saida_marca" class="campo_saida_marca">
+          </div>
+
+          <div class="input-field">
+            <label for="" class="label_campo_saida_quantidade">Quantidade</label>
+            <input type="text" name="campo_saida_quantidade" id="input_saida_qtd" class="campo_saida_quantidade">
+          </div>
+
+          <div class="input-field">
+            <label for="" class="label_campo_saida_destino">Destino</label>
+            <input type="text" name="campo_saida_destino" id="input_saida_destino" class="campo_saida_destino">
+          </div>
+
+          <div class="input-field">
+              <button type="submit" class="retirar_produto" id="enviar_produto">Enviar Produto</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- ========== FIM DO FORM DE SAÍDAS ========== -->
+
+
 
 <!-- ========== INÍCIO DA TABELA DE SAÍDAS ========== -->
       <div class="tabela-container" id="tabela_saidas">

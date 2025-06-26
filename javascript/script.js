@@ -48,6 +48,7 @@ const container_cadastro = document.getElementById("container_form_cadastro");
 
 const btn_saida          = document.getElementById("btn_saida");
 const tabela_saidas      = document.getElementById("tabela_saidas");
+const container_saida    = document.getElementById("container_form_saida");
 
 const btn_registro       = document.getElementById("btn_registro");
 const tabela_registros   = document.getElementById("tabela_registros");
@@ -62,6 +63,7 @@ function fecharTodasTabelas() {
     tabela_registros.classList.remove("tabela-show");
     container_form.classList.remove("tabela-show");
     container_cadastro.classList.remove("tabela-show");
+    container_saida.classList.remove("tabela-show");
     tabelaAberta = null;
 }
 
@@ -113,7 +115,7 @@ btn_saida.addEventListener("click", () => {
     } else {
         fecharTodasTabelas();
         tabela_saidas.classList.add("tabela-show");
-        container_form.classList.add("tabela-show");
+        container_saida.classList.add("tabela-show");
         tabelaAberta = "tabela_saidas";
     }
     configurarPesquisa();
@@ -155,7 +157,7 @@ function configurarPesquisa() {
 
         let tabelaAtiva = null;
 
-        // CORREÇÃO 1: Nome corrigido de 'cadsatros' para 'cadastros'
+        
         const tabelas = {
             estoque: document.getElementById('tabela_estoque'),
             cadastros: document.getElementById('tabela_cadastros'), // Nome corrigido
@@ -164,7 +166,7 @@ function configurarPesquisa() {
         };
 
         for (const [key, tabela] of Object.entries(tabelas)) {
-            // CORREÇÃO 2: Verificar se tabela existe antes de acessar classList
+            //Verificar se tabela existe antes de acessar classList
             if(tabela && tabela.classList.contains('tabela-show')) {
                 tabelaAtiva = tabela;
                 break;
