@@ -1,3 +1,5 @@
+
+
 const pool = require('./db');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -6,6 +8,7 @@ const cors = require('cors');
 const app = express(); //GUARDA O EXPRESS (SERVIDOR "INICIAR SERVIDOR") DENTRO DE UMA VARIÁVEL CHAMADA APP
 const port = 3000; //DEFINE A PORTA PADRÃO PARA 3000
 
+app.use(express.json());
 app.use(cors()); //PERMITE QUE O HTML ENVIE REQUISIÇÕES PARA O BACK END, CASO CONTRÁRIO ELE É BLOQUEADO
 app.use(bodyParser.urlencoded({ extended: true})); //PERMITE O BECKEND LER OS DADOS DA URL
 app.use(bodyParser.json()); //DECODIFICA O JSON DAS ROTAS
@@ -188,7 +191,7 @@ app.get('/saidas', async (req, res) => {
 
 
 
-//ROTA DA TABELA DE REGISTRO
+// ROTA DA TABELA DE REGISTROS
 // ROTA DA TABELA DE REGISTROS
 app.get('/registros', async (req, res) => {
   try {
@@ -196,27 +199,35 @@ app.get('/registros', async (req, res) => {
       SELECT 
         p.nome,
         p.marca,
-        p.quantidade,
-        (
-          SELECT MAX(m1.data_movimento)
-          FROM movimentacoes m1
-          WHERE m1.produto_id = p.id AND m1.tipo = 'entrada'
-        ) AS criado_em,
-        (
-          SELECT MAX(m2.data_movimento)
-          FROM movimentacoes m2
-          WHERE m2.produto_id = p.id AND m2.tipo = 'saida'
-        ) AS saida_em
+        p.quantidade       AS quantidade,
+        p.criado_em        AS data_movimentacao,
+        'CADASTRO'         AS tipo,
+        NULL               AS destino
       FROM produtos p
-      ORDER BY p.nome ASC
+
+      UNION ALL
+
+      SELECT 
+        pr.nome,
+        pr.marca,
+        -sp.quantidade     AS quantidade,           -- sai como negativo
+        sp.data_saida      AS data_movimentacao,
+        'SAÍDA'            AS tipo,
+        sp.destino
+      FROM saidas_produtos sp
+      JOIN produtos pr ON pr.id = sp.produto_id
+
+      ORDER BY data_movimentacao DESC
     `);
-    
+
     res.json(rows);
   } catch (err) {
     console.error('Erro ao buscar registros:', err);
     res.status(500).send('Erro ao buscar registros');
   }
 });
+
+
 
 
 

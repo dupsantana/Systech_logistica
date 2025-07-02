@@ -111,23 +111,23 @@
 <!-- ========== INÍCIO DO FORMULÁRIO DE CADASTRO ========== -->
 <div class="container_form_cadastro" id="container_form_cadastro">
   <div class="container_form">
-    <form action="http://localhost:3000/cadastrar-produto" method="POST">
+    <form id="formCadastro"> <!-- removido action e method -->
       <div class="input_container">
-        <div class="input_cadastro" id="">
+        <div class="input_cadastro">
 
           <div class="input-field">
             <label for="" class="label_campo_cadastro_nome">Nome</label>
-            <input type="text" name="nome" id="input_cadastro_nome" class="campo_cadastro_nome">
+            <input type="text" name="nome" id="input_cadastro_nome" class="campo_cadastro_nome" required>
           </div>
 
           <div class="input-field">
             <label for="" class="label_campo_cadastro_marca">Marca</label>
-            <input type="text" name="marca" id="input_cadastro_marca" class="campo_cadastro_marca">
+            <input type="text" name="marca" id="input_cadastro_marca" class="campo_cadastro_marca" required>
           </div>
 
           <div class="input-field">
             <label for="" class="label_campo_cadastro_quantidade">Quantidade</label>
-            <input type="text" name="quantidade" id="input_cadastro_qtd" class="campo_cadastro_quantidade">
+            <input type="number" name="quantidade" id="input_cadastro_qtd" class="campo_cadastro_quantidade" required>
           </div>
 
           <div class="input-field">
@@ -139,6 +139,8 @@
   </div>
 </div>
 <!-- ========== FIM DO FORMULÁRIO DE CADASTRO ========== -->
+
+
 
 <!-- ========== INÍCIO DA TABELA DE ESTOQUE ========== -->
       <div class="tabela-container" id="tabela_estoque">
@@ -182,33 +184,34 @@
 <!-- ========== INÍCIO DO FORM DE SAÍDAS ========== -->
 <div class="container_form_saida" id="container_form_saida">
   <div class="container_form">
-    <form action="http://localhost:3000/saida-produto" method="POST">
+    <form id="formSaida"> <!-- removido action/method, adicionado id -->
       <div class="input_container">
-        <div class="input_saida" id="">
+        <div class="input_saida">
 
           <div class="input-field">
-            <label for="" class="label_campo_saida_nome">Nome</label>
-            <input type="text" name="campo_saida_nome" id="input_saida_nome" class="campo_saida_nome">
+            <label class="label_campo_saida_nome">Nome</label>
+            <input type="text" name="campo_saida_nome" id="input_saida_nome" class="campo_saida_nome" required>
           </div>
 
           <div class="input-field">
-            <label for="" class="label_campo_saida_marca">Marca</label>
-            <input type="text" name="campo_saida_marca" id="input_saida_marca" class="campo_saida_marca">
+            <label class="label_campo_saida_marca">Marca</label>
+            <input type="text" name="campo_saida_marca" id="input_saida_marca" class="campo_saida_marca" required>
           </div>
 
           <div class="input-field">
-            <label for="" class="label_campo_saida_quantidade">Quantidade</label>
-            <input type="text" name="campo_saida_quantidade" id="input_saida_qtd" class="campo_saida_quantidade">
+            <label class="label_campo_saida_quantidade">Quantidade</label>
+            <input type="number" name="campo_saida_quantidade" id="input_saida_qtd" class="campo_saida_quantidade" required>
           </div>
 
           <div class="input-field">
-            <label for="" class="label_campo_saida_destino">Destino</label>
-            <input type="text" name="campo_saida_destino" id="input_saida_destino" class="campo_saida_destino">
+            <label class="label_campo_saida_destino">Destino</label>
+            <input type="text" name="campo_saida_destino" id="input_saida_destino" class="campo_saida_destino" required>
           </div>
 
           <div class="input-field">
-              <button type="submit" class="retirar_produto" id="enviar_produto">Enviar Produto</button>
+            <button type="submit" class="retirar_produto" id="enviar_produto">Enviar Produto</button>
           </div>
+
         </div>
       </div>
     </form>
@@ -242,15 +245,16 @@
       <div class="tabela-container" id="tabela_registros">
         <div class="tabela_dashboard">
           <table class="tabela_estilizada">
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>Marca</th>
-                <th>Quantidade</th>
-                <th>Entrada em</th>
-                <th>Saída em</th>
-              </tr>
-            </thead>
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Marca</th>
+    <th>Quantidade</th>
+    <th>Data</th>
+    <th>Tipo</th>
+    <th>Destino</th> 
+  </tr>
+</thead>
             <tbody>
             </tbody>
           </table>
@@ -341,33 +345,34 @@
 
 <script>
   document.getElementById('btn_registro')
-  .addEventListener('click', () => {
-    fetch('http://localhost:3000/registros')
-      .then(r => r.json())
-      .then(registros => {
-        const tbody = document.querySelector('#tabela_registros tbody');
-        tbody.innerHTML = '';
-        registros.forEach(item => {
-          const criado = item.criado_em
-            ? new Date(item.criado_em).toLocaleString('pt-BR')
-            : '';
-          const saida = item.saida_em
-            ? new Date(item.saida_em).toLocaleString('pt-BR')
-            : '';
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td>${item.nome}</td>
-            <td>${item.marca}</td>
-            <td>${item.quantidade}</td>
-            <td>${criado}</td>
-            <td>${saida}</td>
-          `;
-          tbody.appendChild(tr);
-        });
-      })
-      .catch(err => console.error('Erro ao buscar registros:', err));
-  });
+    .addEventListener('click', () => {
+      fetch('http://localhost:3000/registros')
+        .then(r => r.json())
+        .then(registros => {
+          const tbody = document.querySelector('#tabela_registros tbody');
+          tbody.innerHTML = '';
 
+          registros.forEach(item => {
+            const data = item.data_movimentacao
+              ? new Date(item.data_movimentacao).toLocaleString('pt-BR')
+              : '-';
+
+            const destino = item.destino ? item.destino : '';
+
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${item.nome}</td>
+              <td>${item.marca}</td>
+              <td>${item.quantidade}</td>
+              <td>${data}</td>
+              <td>${item.tipo}</td>
+              <td>${destino}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        })
+        .catch(err => console.error('Erro ao buscar registros:', err));
+    });
 </script>
 
 <script>
@@ -407,6 +412,73 @@
         .catch(err => console.error('Erro ao buscar saídas:', err));
     });
 </script>
+
+<!-- ========== ENVIA CADASTRO DE PRODUTO PRO BACK COM FETCH ========== -->
+<script>
+document.getElementById('formCadastro').addEventListener('submit', async function(e) {
+  e.preventDefault(); // impede o envio tradicional
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  // Converte quantidade para número
+  data.quantidade = parseInt(data.quantidade, 10);
+
+  try {
+    const response = await fetch('http://localhost:3000/cadastrar-produto', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    const mensagem = await response.text();
+    alert(mensagem);
+    window.location.reload();
+
+  } catch (error) {
+    alert('Erro ao cadastrar produto.');
+    console.error('Erro ao enviar:', error);
+  }
+});
+</script>
+<!-- ========== FIM DO ENVIO DE PRODUTO COM FETCH ========== -->
+
+<!-- ========== CAPTURA SAÍDA COM FETCH ========== -->
+<script>
+document.getElementById('formSaida').addEventListener('submit', async function(e) {
+  e.preventDefault(); // evita envio tradicional
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  // Converte quantidade para inteiro
+  data.campo_saida_quantidade = parseInt(data.campo_saida_quantidade, 10);
+
+  try {
+    const response = await fetch('http://localhost:3000/saida-produto', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    const mensagem = await response.text();
+    alert(mensagem);       // popup com o resultado
+    window.location.reload(); // recarrega a página
+
+  } catch (err) {
+    console.error('Erro na saída:', err);
+    alert('Erro ao registrar saída.');
+  }
+});
+</script>
+
+<!-- ========== FIM DA CAPTURA DE SAÍDA COM FETCH ========== -->
 
 
 
