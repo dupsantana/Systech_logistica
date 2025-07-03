@@ -8,6 +8,17 @@ const cors = require('cors');
 const app = express(); //GUARDA O EXPRESS (SERVIDOR "INICIAR SERVIDOR") DENTRO DE UMA VARIÁVEL CHAMADA APP
 const port = 3000; //DEFINE A PORTA PADRÃO PARA 3000
 
+const path = require('path');
+
+// Servir arquivos estáticos (como CSS, JS, imagens, etc) da pasta View/source
+app.use(express.static(path.join(__dirname, 'View', 'source')));
+
+// Quando acessar /logistica, renderizar logistica.html
+app.get('/logistica', (req, res) => {
+  res.sendFile(path.join(__dirname, 'View', 'source', 'logistica.html'));
+});
+
+
 app.use(express.json());
 app.use(cors()); //PERMITE QUE O HTML ENVIE REQUISIÇÕES PARA O BACK END, CASO CONTRÁRIO ELE É BLOQUEADO
 app.use(bodyParser.urlencoded({ extended: true})); //PERMITE O BECKEND LER OS DADOS DA URL
