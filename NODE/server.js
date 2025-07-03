@@ -13,7 +13,14 @@ app.use(cors()); //PERMITE QUE O HTML ENVIE REQUISIÇÕES PARA O BACK END, CASO 
 app.use(bodyParser.urlencoded({ extended: true})); //PERMITE O BECKEND LER OS DADOS DA URL
 app.use(bodyParser.json()); //DECODIFICA O JSON DAS ROTAS
 
+app.get('/', (req, res) => {
+  res.send('API funcionando!');
+});
 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
 
 async function testarConexao() {
   try {
