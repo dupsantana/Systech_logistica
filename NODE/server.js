@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'View', 'source')));
 
 // Quando acessar /logistica, renderizar logistica.html
 app.get('/logistica', (req, res) => {
-  res.sendFile(path.join(__dirname, 'View', 'source', 'logistica.html'));
+  res.sendFile(path.join(__dirname, 'View', 'src', 'logistica.html'));
 });
 
 
